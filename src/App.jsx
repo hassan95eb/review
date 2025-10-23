@@ -1,12 +1,14 @@
 import React from "react";
 import Steps from "./components/Steps";
 import CounterDate from "./components/CounterDate";
+import Timer from "./components/Timer";
 
 export default function App() {
   return (
     <>
       {/* <Steps /> */}
-      <CounterDate />
+      {/* <CounterDate /> */}
+      <Timer />
     </>
   );
 }
