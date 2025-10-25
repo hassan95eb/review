@@ -2,6 +2,7 @@ import React, {
   useEffect,
   useState,
 } from "react";
+import DateTimer from "./DateTimer";
 
 export default function Timer() {
   const [seconds, setSeconds] =
@@ -11,8 +12,8 @@ export default function Timer() {
   const [hours, setHours] = useState(0);
   const [isStart, setIsStart] =
     useState(false);
-
-  const date = new Date();
+  const [recordTime, setRecordTime] =
+    useState([]);
 
   useEffect(() => {
     let interval;
@@ -45,30 +46,30 @@ export default function Timer() {
     setMinutes(0);
     setHours(0);
   };
+  const handleRecord = (e) => {
+    console.log(e.target.innerHTML);
+    setRecordTime([
+      ...recordTime,
+      e.target.innerHTML,
+    ]);
+  };
 
   return (
     <div className="flex flex-col justify-center items-center w-full h-screen">
       {/* بخش تاریخ */}
-      <div className="flex w-36 justify-between mb-4">
-        <span className="text-white bg-black px-1 rounded text-2xl select-none">
-          {date.getFullYear()}
-        </span>
-        <span className="text-white bg-black px-1 rounded text-2xl select-none">
-          {date.getMonth() + 1}
-        </span>
-        <span className="text-white bg-black px-1 rounded text-2xl select-none">
-          {date.getDate()}
-        </span>
-      </div>
+      <DateTimer />
 
       {/* تایمر */}
-      <div className="bg-black h-[250px] w-[250px] my-2 rounded-full flex justify-center items-center text-white text-4xl font-mono hover:bg-gray-900">
-        {String(hours).padStart(2, "0")}{" "}
+      <div
+        className="bg-black h-[250px] w-[250px] my-2 rounded-full flex justify-center items-center text-white text-4xl font-mono hover:bg-gray-900 select-none cursor-pointer"
+        onClick={handleRecord}
+      >
+        {String(hours).padStart(2, "0")}
         :
         {String(minutes).padStart(
           2,
           "0"
-        )}{" "}
+        )}
         :
         {String(seconds).padStart(
           2,
