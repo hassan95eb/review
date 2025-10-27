@@ -1,29 +1,11 @@
 import React from "react";
-// import { useContext } from "react";
+import { useContext } from "react";
 import { FaCheck, FaInfoCircle, FaRegEdit, FaTimes } from "react-icons/fa";
 import { MdDelete } from "react-icons/md";
-// import { taskContext } from "../../taskContext";
-import { useState } from "react";
+import { taskContext } from "../../taskContext";
 
 export default function TaskItems() {
-  // const { taskItems, setTaskItems } = useContext(taskContext);
-  const [taskItems, setTaskItems] = useState([
-    {
-      id: 1,
-      title: "task1",
-      isDone: false,
-    },
-    {
-      id: 2,
-      title: "task2",
-      isDone: true,
-    },
-    {
-      id: 3,
-      title: "task3",
-      isDone: false,
-    },
-  ]);
+  const { taskItems, setTaskItems } = useContext(taskContext);
 
   const handleChangeDone = (id) => {
     const itemId = taskItems.findIndex((t) => t.id === id);
@@ -38,11 +20,8 @@ export default function TaskItems() {
     const index = newTasks.findIndex((t) => t.id === id);
     newTasks.splice(index, 1);
     setTaskItems(newTasks);
-    callBug();
   };
-  const callBug = () => {
-    console.log(taskItems, "taskItems");
-  };
+
   if (taskItems.length) {
     return (
       <>
