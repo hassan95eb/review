@@ -3,6 +3,7 @@ import React from "react";
 // import CounterDate from "./components/CounterDate";
 // import Timer from "./components/Timer";
 import Todo from "./components/todo/Todo";
+import RefTest from "./components/RefTest";
 
 export default function App() {
   return (
@@ -10,7 +11,8 @@ export default function App() {
       {/* <Steps /> */}
       {/* <CounterDate /> */}
       {/* <Timer /> */}
-      <Todo />
+      {/* <Todo /> */}
+      <RefTest />
     </>
   );
 }
