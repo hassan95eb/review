@@ -7,12 +7,8 @@ import RefTest from "./components/RefTest";
 
 export default function App() {
   return (
-    <>
-      {/* <Steps /> */}
-      {/* <CounterDate /> */}
-      {/* <Timer /> */}
-      {/* <Todo /> */}
-      <RefTest />
-    </>
+    <div className="min-h-screen bg-gray-50 py-8">
+      <Todo />
+    </div>
   );
 }
