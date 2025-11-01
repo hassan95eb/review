@@ -13,7 +13,8 @@ describe("Todo", () => {
   it("displays sample tasks on initial load", () => {
     render(<Todo />);
 
-    expect(screen.getByText(/sample task/i)).toBeInTheDocument();
+    const sampleTasks = screen.getAllByText(/sample task/i);
+    expect(sampleTasks.length).toBeGreaterThan(0);
   });
 
   it("provides task context to child components", () => {
